@@ -1,0 +1,25 @@
+service: ccb-automations
+
+frameworkVersion: '3'
+
+plugins:
+  - 'serverless-plugin-typescript'
+  - serverless-plugin-optimize
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+package:
+  exclude:
+    - node_modules/puppeteer/.local-chromium/**
+
+
+functions:
+  getNotices:
+    handler: src/functions/get-notices.handler
+    environment:
+      AWS_ACCESS_KEY_ID: AKIAQ2FITB7CP2KO3JGV
+      AWS_SECRET_ACCESS_KEY: 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
+
